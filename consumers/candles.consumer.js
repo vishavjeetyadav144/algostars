@@ -27,7 +27,7 @@ const candlestick_15m = async (job) => {
 
     await Candle.findOneAndUpdate({timestamp: data.candle_start_time, symbol: data.symbol }, candle , { upsert:true, new:true});
 
-    if(last_candle.timestamp + 300000000 == candle.timestamp ){
+    if( last_candle && last_candle.timestamp + 300000000 == candle.timestamp ){
 
         await redisClient.set(`last_candle:${data.symbol}`, JSON.stringify(candle))
 
@@ -43,6 +43,8 @@ const candlestick_15m = async (job) => {
                 redisClient.set(`alertCandle:${candle.symbol}`, JSON.stringify(candle));
             }
         }
+    }else{
+        await redisClient.set(`last_candle:${data.symbol}`, JSON.stringify(candle))
     }
     
 
