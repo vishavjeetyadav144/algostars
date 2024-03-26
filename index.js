@@ -71,12 +71,12 @@ const socketConnection = () => {
                     {
                         "name": "v2/spot_price",
                         "symbols": [
-                            ".DEXBTUSDT"
+                            ".DEXBTUSDT",".DEETHUSDT"
                         ]
                     },
                     {
                         "name": "candlestick_5m",
-                        "symbols": ["BTCUSDT"]
+                        "symbols": ["BTCUSDT", "ETHUSDT"]
                     }
                 ]
             }
