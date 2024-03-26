@@ -31,9 +31,9 @@ const candlestick_15m = new Queue('candlestick_15m', {
 const handleSocketData = async (data) => {
 
 
-    if (data.type == "candlestick_15m") {
+    if (data.type == "candlestick_5m") {
 
-        await candlestick_15m.add('candlestick_15m', data);
+        await candlestick_15m.add('candlestick_5m', data);
 
     } else if (data.type == "v2/spot_price") {
 
