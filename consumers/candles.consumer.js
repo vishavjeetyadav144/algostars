@@ -28,7 +28,7 @@ const candlestick_15m = async (job) => {
     await Candle.findOneAndUpdate({timestamp: data.candle_start_time, symbol: data.symbol }, candle , { upsert:true, new:true});
     await redisClient.set(`last_candle:${data.symbol}`, JSON.stringify(candle))
 
-    if(last_candle + 900000000 == candle.timestamp ){
+    if(last_candle.timestamp + 900000000 == candle.timestamp ){
 
         if (candle.rsi >= 56) {
             let candleCheck = await redisClient.get(`alertCandle:${candle.symbol}`);
