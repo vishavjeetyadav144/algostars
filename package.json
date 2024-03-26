@@ -1,0 +1,23 @@
+{
+  "name": "practice_algo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start ecosystem.config.json --no-daemon",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bullmq": "^5.4.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "hbs": "^4.2.0",
+    "mongoose": "^8.2.3",
+    "nodemon": "^3.1.0",
+    "redis": "^4.6.13",
+    "ws": "^8.16.0"
+  }
+}

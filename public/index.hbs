@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rsi</title>
+    <style>
+        /* General table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid;
+            text-align: center;
+            padding: 8px;
+        }
+
+        /* Navigation bar styles */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            color: white;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <div class="container">
+            <a href="/candle">ORDERS</a> <!-- Link to Candle page -->
+            <button onclick="window.location.href='/candle'">Candles</button> <!-- Button to redirect to Candle page -->
+        </div>
+    </div>
+
+    <br/>
+
+    <table>
+        <tr>
+            <th>Symbol</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Points</th>
+            <th>Bought At</th>
+            <th>Sold At</th>
+            <th>Target</th>
+            <th>Stoploss</th>
+            <th>Trailing Count</th>
+            <th>Created At</th>
+        </tr>
+        {{#each order}}
+        <tr>
+            <td>{{symbol}}</td>
+            <td>{{type}}</td>
+            <td>{{status}}</td>
+            <td>{{points}}</td>
+            <td>{{boughtAt}}</td>
+            <td>{{soldAt}}</td>
+            <td>{{target}}</td>
+            <td>{{stoploss}}</td>
+            <td>{{trailingCount}}</td>
+            <td>{{createdAt}}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <script>
+        // Function to refresh the page every second
+        setInterval(function() {
+            location.reload();
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

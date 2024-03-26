@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rsi</title>
+    <style>
+        /* Styles for the navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        /* Style the links inside the navigation bar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        /* Change the color of links on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a container for the navigation bar */
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Style the button */
+        .navbar button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Style for the table to use full width */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid;
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="container">
+            <a href="#">Candles</a>
+            <button onclick="window.location.href='/order'">Go to Orders</button> 
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Symbol</th>
+            <th>15 minute candle</th>
+        </tr>
+        <br/>
+        {{#each data}}
+        <tr>
+            <td>{{_id}}</td>
+            <td>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Open</th>
+                        <th>Close</th>
+                        <th>RSI</th>
+                    </tr>
+                    {{#each candles}}
+                    <tr>
+                        <td>{{timestamp}}</td>
+                        <td>{{high}}</td>
+                        <td>{{low}}</td>
+                        <td>{{open}}</td>
+                        <td>{{close}}</td>
+                        <td>{{rsi}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <script>
+        // Function to refresh the page every second
+        setInterval(function() {
+            location.reload();
+        }, 1000);
+    </script>
+</body>
+
+</html>
+
