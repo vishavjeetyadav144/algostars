@@ -5,6 +5,7 @@ const path = require('path');
 const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const hbs = require('hbs');
+const morgan = require('./config/morgan');
 
 dotenv.config({ path: path.join(__dirname, './.env') });
 const { startCandleConsumerService } = require('./consumers/candles.consumer');
@@ -89,6 +90,9 @@ const socketConnection = () => {
 }
 
 const app = express()
+
+app.use(morgan.successHandler);
+app.use(morgan.errorHandler);
 
 app.set("view engine", "hbs");
 // parse json request body
