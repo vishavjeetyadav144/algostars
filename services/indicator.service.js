@@ -25,6 +25,9 @@ const getCandle = async() => {
                     _id: "$_id",
                     candles: { $push: "$candles" } // Push the sorted candles back into an array
                 }
+            },
+            {
+                $sort: { "_id": 1 } // Sort by symbol in alphabetical order
             }
         ]);
         if (!res) {
