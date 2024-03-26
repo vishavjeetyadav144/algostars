@@ -10,7 +10,7 @@ const redisConfiguration = {
 
 const handleSpotPrice = async (job) => {
 
-    handleTicksCheck(job.data)    
+    await handleTicksCheck(job.data)    
     return { success: true };
 }
 
