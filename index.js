@@ -75,7 +75,7 @@ const socketConnection = () => {
                         ]
                     },
                     {
-                        "name": "candlestick_15m",
+                        "name": "candlestick_5m",
                         "symbols": ["BTCUSDT"]
                     }
                 ]
